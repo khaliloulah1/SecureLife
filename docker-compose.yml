@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  postgres_test:
+    image: postgres:15
+    container_name: securelife_postgrestest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: passer
+      POSTGRES_DB: SecureLife
+    ports:
+      - "5433:5432"      # ← port local différent pour éviter conflit avec l’autre Postgres
+    volumes:
+      - pgdata_test:/var/lib/postgresql/data
+    networks:
+      - securelife-net
+
+  redis_test:
+    image: redis:7
+    container_name: securelife_redis_test
+    ports:
+      - "6380:6379"      # ← 6380 sur ton PC → 6379 dans le conteneur Redis
+    networks:
+      - securelife-net
+
+volumes:
+  pgdata_test:
+
+networks:
+  securelife-net:
+    driver: bridge
