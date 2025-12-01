@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation de Réception de Document</title>
+    <style>
+        /* ... (ton style ici) ... */
+    </style>
+</head>
+<body>
+
+<div class="email-container">
+    <div class="email-header">
+        <h2>Confirmation de Réception de Document</h2>
+    </div>
+    <div class="email-content">
+        <p>Bonjour <span th:text="${nomClient}">Nom Client</span>,</p>
+
+        <p>Nous avons bien reçu le document que vous avez téléchargé pour votre contrat d'assurance <strong><span th:text="${numeroContrat}">Numéro Contrat</span></strong>.</p>
+
+        <p>Voici les détails du document téléchargé :</p>
+        <ul>
+            <li><strong>Nom du fichier :</strong> <span th:text="${fileName}">Nom du fichier</span></li>
+            <li><strong>Type de document :</strong> <span th:text="${documentType}">Type du document</span></li>
+        </ul>
+
+        <p>Nous vous remercions pour votre réactivité. Si vous avez d'autres documents à télécharger ou des questions, n'hésitez pas à nous contacter.</p>
+
+        <p>Bien cordialement,</p>
+        <p><strong>L'équipe SecureLife</strong></p>
+
+    </div>
+    <div class="email-footer">
+        <p>Si vous n'avez pas effectué cette action, veuillez nous contacter immédiatement.</p>
+        <p><small>&copy; <span th:text="${year}">2025</span> SecureLife. Tous droits réservés.</small></p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Création de votre contrat</title>
+</head>
+<body style="font-family: Arial, sans-serif;">
+
+<p>
+    Bonjour <strong th:text="${nomComplet}">Nom Client</strong>,
+</p>
+
+<p>
+    Votre contrat <strong th:text="${typeAssurance}">Type</strong> a été créé avec succès.
+</p>
+
+<h3>Détails généraux</h3>
+<ul>
+    <li><strong>Numéro :</strong> <span th:text="${numeroContrat}"></span></li>
+    <li><strong>Statut :</strong> <span th:text="${status}"></span></li>
+    <li><strong>Prime annuelle :</strong> <span th:text="${primeAnnuelle}"></span> FCFA</li>
+    <li><strong>Prime de base :</strong> <span th:text="${primeBase}"></span> FCFA</li>
+    <li><strong>Date création :</strong> <span th:text="${createdAt}"></span></li>
+</ul>
+
+<!-- Contrat Auto -->
+<div th:if="${immatriculation != null}">
+    <h3>Informations véhicule</h3>
+    <ul>
+        <li><strong>Immatriculation :</strong> <span th:text="${immatriculation}"></span></li>
+        <li><strong>Puissance fiscale :</strong> <span th:text="${puissanceFiscale}"></span></li>
+        <li><strong>Bonus/Malus :</strong> <span th:text="${bonusMalus}"></span></li>
+    </ul>
+</div>
+
+<!-- Contrat Habitation -->
+<div th:if="${adresse != null}">
+    <h3>Informations habitation</h3>
+    <ul>
+        <li><strong>Adresse :</strong> <span th:text="${adresse}"></span></li>
+        <li><strong>Superficie :</strong> <span th:text="${superficie}"></span> m²</li>
+        <li><strong>Zone de risque :</strong> <span th:text="${zoneRisque}"></span></li>
+    </ul>
+</div>
+
+<!-- Contrat Vie -->
+<div th:if="${ageAssure != null}">
+    <h3>Informations assurés</h3>
+    <ul>
+        <li><strong>Âge assuré :</strong> <span th:text="${ageAssure}"></span></li>
+        <li><strong>Capital garanti :</strong> <span th:text="${capitalGaranti}"></span> FCFA</li>
+        <li><strong>Bénéficiaire :</strong> <span th:text="${beneficiaire}"></span></li>
+    </ul>
+</div>
+
+<p>
+    Merci de faire confiance à SecureLife.
+</p>
+
+</body>
+</html>
