@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modification de votre contrat - SecureLife</title>
+</head>
+<body style="font-family: Arial, sans-serif;">
+
+<p>Bonjour <strong th:text="${nomComplet}">Nom Client</strong>,</p>
+
+<p>Le contrat <strong th:text="${typeAssurance}">Type</strong> n° <strong th:text="${numeroContrat}">12345</strong> a été mis à jour.</p>
+
+<h3>Récapitulatif</h3>
+<ul>
+    <li><strong>Numéro :</strong> <span th:text="${numeroContrat}"></span></li>
+    <li><strong>Type :</strong> <span th:text="${typeAssurance}"></span></li>
+    <li><strong>Statut :</strong> <span th:text="${status}"></span></li>
+    <li><strong>Prime annuelle :</strong> <span th:text="${primeAnnuelle}">0.0</span> FCFA</li>
+    <li><strong>Prime de base :</strong> <span th:text="${primeBase}">0.0</span> FCFA</li>
+    <li><strong>Créé le :</strong> <span th:text="${createdAt}">-</span></li>
+    <li><strong>Mis à jour le :</strong> <span th:text="${updatedAt}">-</span></li>
+</ul>
+
+<!-- Détails Contrat AUTO -->
+<div th:if="${immatriculation != null}">
+    <h4>Informations véhicule</h4>
+    <ul>
+        <li><strong>Immatriculation :</strong> <span th:text="${immatriculation}"></span></li>
+        <li><strong>Puissance fiscale :</strong> <span th:text="${puissanceFiscale}"></span></li>
+        <li><strong>Bonus / Malus :</strong> <span th:text="${bonusMalus}"></span></li>
+    </ul>
+</div>
+
+<!-- Détails Contrat HABITATION -->
+<div th:if="${adresse != null}">
+    <h4>Informations habitation</h4>
+    <ul>
+        <li><strong>Adresse :</strong> <span th:text="${adresse}"></span></li>
+        <li><strong>Superficie :</strong> <span th:text="${superficie}"></span> m²</li>
+        <li><strong>Zone de risque :</strong> <span th:text="${zoneRisque}"></span></li>
+    </ul>
+</div>
+
+<!-- Détails Contrat VIE -->
+<div th:if="${ageAssure != null}">
+    <h4>Informations assuré</h4>
+    <ul>
+        <li><strong>Âge assuré :</strong> <span th:text="${ageAssure}"></span></li>
+        <li><strong>Capital garanti :</strong> <span th:text="${capitalGaranti}"></span> FCFA</li>
+        <li><strong>Bénéficiaire :</strong> <span th:text="${beneficiaire}"></span></li>
+    </ul>
+</div>
+
+<h4>Contact</h4>
+<ul>
+    <li><strong>Email :</strong> <span th:text="${email}"></span></li>
+</ul>
+
+<p>Si vous avez des questions concernant cette modification, répondez à cet email ou contactez notre support.</p>
+
+<p>Merci de faire confiance à <strong>SecureLife</strong>.</p>
+
+</body>
+</html>

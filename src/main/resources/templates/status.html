@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Changement de statut de votre contrat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        h2 {
+            color: #333333;
+        }
+        p {
+            font-size: 16px;
+            color: #555555;
+        }
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            color: burlywood;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .ACTIF { background-color: #28a745; }       /* Vert */
+        .INACTIF { background-color: #dc3545; }     /* Rouge */
+        .EN_ATTENTE { background-color: #ffc107; }  /* Jaune */
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Bonjour <span th:text="${clientNom}">Nom Client</span>,</h2>
+
+    <p>Le statut de votre contrat <strong th:text="${contratId}">12345</strong> a été mis à jour.</p>
+
+    <p>Nouveau statut :
+        <span th:text="${status}" th:classappend="${status}" class="status">ACTIF</span>
+    </p>
+
+    <p>Merci de votre confiance,<br><strong>SecureLife</strong></p>
+</div>
+</body>
+</html>
